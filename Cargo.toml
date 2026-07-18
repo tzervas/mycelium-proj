@@ -13,11 +13,38 @@ workspace = true
 
 [dependencies]
 # Reuses the L1 `// nodule:` marker recogniser (M-358); the structured header layers on top of it.
-mycelium-l1 = { path = "../mycelium-l1" }
+mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "cd32a1ed7ab7d2be38c9c3047da7318d182b7a1c" }
 # The `CertMode` type (M-786) the `@certification` attribute resolves to (RFC-0034 §6; M-790). proj
 # already depends transitively on core via l1, so this introduces no new dependency cycle.
-mycelium-core = { path = "../mycelium-core" }
+mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "781d3fcceba82acfe6b0eb46650513bd78a2416b" }
 
 [dev-dependencies]
 # Property-based testing for the resolution-precedence + cross-mode-boundary laws (M-790; RFC-0034 §6).
 proptest = "1"
+
+# --- standalone workspace root (course-correction Phase B, 2026-07-18; steer handoff §6.2) ---
+[workspace]
+
+[workspace.package]
+version = "0.464.0"
+edition = "2021"
+rust-version = "1.96.1"
+license = "MIT"
+repository = "https://github.com/tzervas/mycelium-proj"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+blake3 = "1"
+
+[workspace.lints.rust]
+# ADR-014: unsafe permitted-but-documented; the check is clippy::undocumented_unsafe_blocks.
+unsafe_code = "allow"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+undocumented_unsafe_blocks = "warn"
+
+# G2 never-silent arithmetic: release builds panic on overflow (monorepo parity).
+[profile.release]
+overflow-checks = true
