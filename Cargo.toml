@@ -13,10 +13,10 @@ workspace = true
 
 [dependencies]
 # Reuses the L1 `// nodule:` marker recogniser (M-358); the structured header layers on top of it.
-mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "31f7aaa956cca0e1c7a894eeaff4d10d58b5b2b8" }
+mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "1d422648d6f41e1077c8f8b7ae7c7e38b2bd254f" }
 # The `CertMode` type (M-786) the `@certification` attribute resolves to (RFC-0034 §6; M-790). proj
 # already depends transitively on core via l1, so this introduces no new dependency cycle.
-mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "3958d2ea3c3921611e33f1f00e3469b29a939a76" }
+mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "57ef45b453eef1f02bdfb1f0cad1034dabd32b1f" }
 
 [dev-dependencies]
 # Property-based testing for the resolution-precedence + cross-mode-boundary laws (M-790; RFC-0034 §6).
