@@ -13,7 +13,7 @@ workspace = true
 
 [dependencies]
 # Reuses the L1 `// nodule:` marker recogniser (M-358); the structured header layers on top of it.
-mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "2b92f54349eb0d4f67e32e983874df76908b9ab6" }
+mycelium-l1 = { git = "https://github.com/tzervas/mycelium-l1", rev = "31f7aaa956cca0e1c7a894eeaff4d10d58b5b2b8" }
 # The `CertMode` type (M-786) the `@certification` attribute resolves to (RFC-0034 §6; M-790). proj
 # already depends transitively on core via l1, so this introduces no new dependency cycle.
 mycelium-core = { git = "https://github.com/tzervas/mycelium-core", rev = "46d2515cbd86d2ae4d1365f4adcd2796737e9f0b" }
